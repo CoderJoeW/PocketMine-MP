@@ -23,12 +23,17 @@ declare(strict_types=1);
 
 namespace pocketmine\block\inventory;
 
+/**
+ * Represents a block that has a maximum distance the player can be away from it.
+ *
+ * This need to be combined with the BlockInventory interface to be useful.
+ */
 interface ProximityRestricted {
 
 	public const MAX_DISTANCE = 6;
 
 	/**
-	 * Returns the max distance the player can be away
+	 * Returns the max distance the player can be away from the holder
 	 *
 	 * @phpstan-return positive-int
 	 */
