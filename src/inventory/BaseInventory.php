@@ -39,7 +39,6 @@ use function spl_object_id;
  */
 abstract class BaseInventory implements Inventory{
 	protected int $maxStackSize = Inventory::MAX_STACK;
-
 	/** @var Player[] */
 	protected array $viewers = [];
 	/**
