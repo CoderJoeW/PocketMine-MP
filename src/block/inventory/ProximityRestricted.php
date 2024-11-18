@@ -29,6 +29,8 @@ interface ProximityRestricted {
 
 	/**
 	 * Returns the max distance the player can be away
+	 *
+	 * @phpstan-return positive-int
 	 */
 	public function getMaxDistance() : int;
 }

@@ -298,7 +298,7 @@ class Player extends Human implements CommandSender, ChunkListener, IPlayer{
 
 	protected ?SurvivalBlockBreakHandler $blockBreakHandler = null;
 
-	protected ?Vector3 $openContainerPosition = null;
+	protected ?Vector3 $containerOpenPosition = null;
 
 	public function __construct(Server $server, NetworkSession $session, PlayerInfo $playerInfo, bool $authenticated, Location $spawnLocation, ?CompoundTag $namedtag){
 		$username = TextFormat::clean($playerInfo->getUsername());
@@ -1378,14 +1378,11 @@ class Player extends Human implements CommandSender, ChunkListener, IPlayer{
 			$this->logger->debug("Exceeded movement rate limit, forcing to last accepted position");
 			$this->sendPosition($this->location, $this->location->getYaw(), $this->location->getPitch(), MovePlayerPacket::MODE_RESET);
 		}
-		if ($this->openContainerPosition !== null && $this->currentWindow !== null) {
-			if ($this->currentWindow instanceof ProximityRestricted) {
-				$distance = $this->location->distance($this->openContainerPosition);
-
-				if ($distance > $this->currentWindow->getMaxDistance()) {
-					$this->removeCurrentWindow();
-				}
-			}
+		if($this->containerOpenPosition !== null &&
+			$this->currentWindow instanceof ProximityRestricted &&
+			$this->location->distance($this->containerOpenPosition) > $this->currentWindow->getMaxDistance()
+		){
+			$this->removeCurrentWindow();
 		}
 	}
 
@@ -2660,13 +2657,11 @@ class Player extends Human implements CommandSender, ChunkListener, IPlayer{
 		$inventory->onOpen($this);
 		$this->currentWindow = $inventory;
 
-		if ($inventory instanceof ProximityRestricted) {
-			if ($inventory->getMaxDistance() > 0) {
-				if ($inventory instanceof BlockInventory) {
-					$holder = $inventory->getHolder();
-					$this->openContainerPosition = $holder->asPosition();
-				}
-			}
+		if($inventory instanceof ProximityRestricted &&
+			$inventory->getMaxDistance() > 0 &&
+			$inventory instanceof BlockInventory
+		){
+			$this->containerOpenPosition = $inventory->getHolder()->asPosition();
 		}
 
 		return true;
@@ -2685,7 +2680,7 @@ class Player extends Human implements CommandSender, ChunkListener, IPlayer{
 			(new InventoryCloseEvent($currentWindow, $this))->call();
 		}
 
-		$this->openContainerPosition = null;
+		$this->containerOpenPosition = null;
 	}
 
 	protected function addPermanentInventories(Inventory ...$inventories) : void{

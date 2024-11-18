@@ -40,7 +40,7 @@ use function spl_object_id;
  */
 abstract class BaseInventory implements Inventory, ProximityRestricted{
 	protected int $maxStackSize = Inventory::MAX_STACK;
-
+	/** @phpstan-var positive-int */
 	protected int $maxDistanceFromContainer = ProximityRestricted::MAX_DISTANCE;
 
 	/** @var Player[] */
