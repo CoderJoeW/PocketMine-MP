@@ -26,8 +26,9 @@ namespace pocketmine\block\inventory;
 use pocketmine\inventory\SimpleInventory;
 use pocketmine\world\Position;
 
-class BrewingStandInventory extends SimpleInventory implements BlockInventory{
+class BrewingStandInventory extends SimpleInventory implements BlockInventory, ProximityRestricted{
 	use BlockInventoryTrait;
+	use ProximityRestrictedTrait;
 
 	public const SLOT_INGREDIENT = 0;
 	public const SLOT_BOTTLE_LEFT = 1;

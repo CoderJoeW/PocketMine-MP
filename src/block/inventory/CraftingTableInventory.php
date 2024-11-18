@@ -27,8 +27,9 @@ use pocketmine\crafting\CraftingGrid;
 use pocketmine\inventory\TemporaryInventory;
 use pocketmine\world\Position;
 
-final class CraftingTableInventory extends CraftingGrid implements BlockInventory, TemporaryInventory{
+final class CraftingTableInventory extends CraftingGrid implements BlockInventory, TemporaryInventory, ProximityRestricted{
 	use BlockInventoryTrait;
+	use ProximityRestrictedTrait;
 
 	public function __construct(Position $holder){
 		$this->holder = $holder;

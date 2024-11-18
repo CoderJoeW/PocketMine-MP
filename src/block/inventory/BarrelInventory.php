@@ -30,8 +30,9 @@ use pocketmine\world\sound\BarrelCloseSound;
 use pocketmine\world\sound\BarrelOpenSound;
 use pocketmine\world\sound\Sound;
 
-class BarrelInventory extends SimpleInventory implements BlockInventory{
+class BarrelInventory extends SimpleInventory implements BlockInventory, ProximityRestricted{
 	use AnimatedBlockInventoryTrait;
+	use ProximityRestrictedTrait;
 
 	public function __construct(Position $holder){
 		$this->holder = $holder;

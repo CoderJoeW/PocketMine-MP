@@ -33,8 +33,9 @@ use pocketmine\world\Position;
 use function array_values;
 use function count;
 
-class EnchantInventory extends SimpleInventory implements BlockInventory, TemporaryInventory{
+class EnchantInventory extends SimpleInventory implements BlockInventory, TemporaryInventory, ProximityRestricted{
 	use BlockInventoryTrait;
+	use ProximityRestrictedTrait;
 
 	public const SLOT_INPUT = 0;
 	public const SLOT_LAPIS = 1;

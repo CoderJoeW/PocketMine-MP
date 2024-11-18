@@ -27,8 +27,9 @@ use pocketmine\inventory\SimpleInventory;
 use pocketmine\inventory\TemporaryInventory;
 use pocketmine\world\Position;
 
-class StonecutterInventory extends SimpleInventory implements BlockInventory, TemporaryInventory{
+class StonecutterInventory extends SimpleInventory implements BlockInventory, TemporaryInventory, ProximityRestricted{
 	use BlockInventoryTrait;
+	use ProximityRestrictedTrait;
 
 	public const SLOT_INPUT = 0;
 

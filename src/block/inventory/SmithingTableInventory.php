@@ -27,8 +27,9 @@ use pocketmine\inventory\SimpleInventory;
 use pocketmine\inventory\TemporaryInventory;
 use pocketmine\world\Position;
 
-final class SmithingTableInventory extends SimpleInventory implements BlockInventory, TemporaryInventory{
+final class SmithingTableInventory extends SimpleInventory implements BlockInventory, TemporaryInventory, ProximityRestricted{
 	use BlockInventoryTrait;
+	use ProximityRestrictedTrait;
 
 	public function __construct(Position $holder){
 		$this->holder = $holder;

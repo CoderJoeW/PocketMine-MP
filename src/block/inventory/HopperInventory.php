@@ -26,8 +26,9 @@ namespace pocketmine\block\inventory;
 use pocketmine\inventory\SimpleInventory;
 use pocketmine\world\Position;
 
-class HopperInventory extends SimpleInventory implements BlockInventory{
+class HopperInventory extends SimpleInventory implements BlockInventory, ProximityRestricted{
 	use BlockInventoryTrait;
+	use ProximityRestrictedTrait;
 
 	public function __construct(Position $holder, int $size = 5){
 		$this->holder = $holder;

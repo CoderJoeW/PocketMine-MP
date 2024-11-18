@@ -34,8 +34,9 @@ use pocketmine\world\sound\ShulkerBoxCloseSound;
 use pocketmine\world\sound\ShulkerBoxOpenSound;
 use pocketmine\world\sound\Sound;
 
-class ShulkerBoxInventory extends SimpleInventory implements BlockInventory{
+class ShulkerBoxInventory extends SimpleInventory implements BlockInventory, ProximityRestricted{
 	use AnimatedBlockInventoryTrait;
+	use ProximityRestrictedTrait;
 
 	public function __construct(Position $holder){
 		$this->holder = $holder;

@@ -27,8 +27,9 @@ use pocketmine\inventory\SimpleInventory;
 use pocketmine\inventory\TemporaryInventory;
 use pocketmine\world\Position;
 
-final class LoomInventory extends SimpleInventory implements BlockInventory, TemporaryInventory{
+final class LoomInventory extends SimpleInventory implements BlockInventory, TemporaryInventory, ProximityRestricted{
 	use BlockInventoryTrait;
+	use ProximityRestrictedTrait;
 
 	public const SLOT_BANNER = 0;
 	public const SLOT_DYE = 1;

@@ -30,8 +30,9 @@ use pocketmine\world\sound\ChestCloseSound;
 use pocketmine\world\sound\ChestOpenSound;
 use pocketmine\world\sound\Sound;
 
-class DoubleChestInventory extends BaseInventory implements BlockInventory, InventoryHolder{
+class DoubleChestInventory extends BaseInventory implements BlockInventory, InventoryHolder, ProximityRestricted{
 	use AnimatedBlockInventoryTrait;
+	use ProximityRestrictedTrait;
 
 	public function __construct(
 		private ChestInventory $left,

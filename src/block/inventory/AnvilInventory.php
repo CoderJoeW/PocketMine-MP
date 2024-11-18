@@ -27,8 +27,9 @@ use pocketmine\inventory\SimpleInventory;
 use pocketmine\inventory\TemporaryInventory;
 use pocketmine\world\Position;
 
-class AnvilInventory extends SimpleInventory implements BlockInventory, TemporaryInventory{
+class AnvilInventory extends SimpleInventory implements BlockInventory, TemporaryInventory, ProximityRestricted{
 	use BlockInventoryTrait;
+	use ProximityRestrictedTrait;
 
 	public const SLOT_INPUT = 0;
 	public const SLOT_MATERIAL = 1;

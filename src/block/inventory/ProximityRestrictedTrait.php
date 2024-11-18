@@ -23,16 +23,10 @@ declare(strict_types=1);
 
 namespace pocketmine\block\inventory;
 
-use pocketmine\inventory\SimpleInventory;
-use pocketmine\inventory\TemporaryInventory;
-use pocketmine\world\Position;
+trait ProximityRestrictedTrait{
+	protected int $maxDistance = ProximityRestricted::MAX_DISTANCE;
 
-final class CartographyTableInventory extends SimpleInventory implements BlockInventory, TemporaryInventory, ProximityRestricted{
-	use BlockInventoryTrait;
-	use ProximityRestrictedTrait;
-
-	public function __construct(Position $holder){
-		$this->holder = $holder;
-		parent::__construct(2);
+	public  function getMaxDistance() : int{
+		return $this->maxDistance;
 	}
 }

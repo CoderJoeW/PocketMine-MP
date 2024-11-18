@@ -28,8 +28,9 @@ use pocketmine\inventory\SimpleInventory;
 use pocketmine\item\Item;
 use pocketmine\world\Position;
 
-class FurnaceInventory extends SimpleInventory implements BlockInventory{
+class FurnaceInventory extends SimpleInventory implements BlockInventory, ProximityRestricted{
 	use BlockInventoryTrait;
+	use ProximityRestrictedTrait;
 
 	public const SLOT_INPUT = 0;
 	public const SLOT_FUEL = 1;

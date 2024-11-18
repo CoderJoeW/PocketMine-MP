@@ -38,10 +38,11 @@ use pocketmine\world\sound\Sound;
 /**
  * EnderChestInventory is not a real inventory; it's just a gateway to the player's ender inventory.
  */
-class EnderChestInventory extends DelegateInventory implements BlockInventory{
+class EnderChestInventory extends DelegateInventory implements BlockInventory, ProximityRestricted{
 	use AnimatedBlockInventoryTrait {
 		onClose as animatedBlockInventoryTrait_onClose;
 	}
+	use ProximityRestrictedTrait;
 
 	public function __construct(
 		Position $holder,
