@@ -24,6 +24,7 @@ declare(strict_types=1);
 namespace pocketmine\block\inventory;
 
 trait ProximityRestrictedTrait{
+	/** @phpstan-var positive-int */
 	protected int $maxDistance = ProximityRestricted::MAX_DISTANCE;
 
 	public  function getMaxDistance() : int{
