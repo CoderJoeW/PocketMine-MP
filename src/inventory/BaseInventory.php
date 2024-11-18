@@ -67,10 +67,6 @@ abstract class BaseInventory implements Inventory, ProximityRestricted{
 		return $this->maxDistanceFromContainer;
 	}
 
-	public function setMaxDistance(int $maxDistance) : void {
-		$this->maxDistanceFromContainer = $maxDistance;
-	}
-
 	abstract protected function internalSetItem(int $index, Item $item) : void;
 
 	public function setItem(int $index, Item $item) : void{

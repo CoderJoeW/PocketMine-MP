@@ -31,9 +31,4 @@ interface ProximityRestricted {
 	 * Returns the max distance the player can be away
 	 */
 	public function getMaxDistance() : int;
-
-	/**
-	 * Returns the max distance the player can be away
-	 */
-	public function setMaxDistance(int $maxDistance) : void;
 }
