@@ -27,7 +27,7 @@ use pocketmine\block\BaseSign;
 use pocketmine\block\Bed;
 use pocketmine\block\BlockTypeTags;
 use pocketmine\block\inventory\BlockInventory;
-use pocketmine\block\ProximityRestricted;
+use pocketmine\block\inventory\ProximityRestricted;
 use pocketmine\block\UnknownBlock;
 use pocketmine\block\VanillaBlocks;
 use pocketmine\command\CommandSender;

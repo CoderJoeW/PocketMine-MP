@@ -21,7 +21,7 @@
 
 declare(strict_types=1);
 
-namespace pocketmine\block;
+namespace pocketmine\block\inventory;
 
 interface ProximityRestricted {
 
